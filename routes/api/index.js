@@ -4,10 +4,16 @@ const bookRoutes = require("./books");
 const googleRoutes = require("./google");
 
 //Book routes
+router.use("/books", bookRoutes);
 
 //Google routes
+router.use("/google", googleRoutes);
 
 //HTML render
+router.use(function(req, res) {
+    res.sendFile(path.join(__dirname, "../client/public/index.html")
+    );
+});
 
 module.exports = router;
 
