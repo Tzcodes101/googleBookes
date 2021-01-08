@@ -1,9 +1,6 @@
 {
-  "name": "google-books",
-  "version": "0.1.0",
-  "engines": {
-    "node": "12.18.4"
-  },
+  "name": "react-google-books",
+  "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
@@ -15,25 +12,16 @@
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
   },
-  "author": "Talia Zisman",
-  "liscense": "ISC",
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
     "concurrently": "^4.1.0",
     "nodemon": "^1.18.7"
   },
   "dependencies": {
-    "axios": "^0.21.1",
-    "express": "^4.17.1",
+    "axios": "^0.18.0",
+    "express": "^4.16.3",
     "if-env": "^1.0.4",
-    "mongoose": "^5.11.10"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Tzcodes101/googleBooks.git"
-  },
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Tzcodes101/googleBooks/issues"
-  },
-  "homepage": "https://github.com/Tzcodes101/googleBooks#readme"
+    "mongoose": "^5.3.16"
+  }
 }
