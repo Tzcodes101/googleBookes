@@ -26,5 +26,14 @@
     "express": "^4.17.1",
     "if-env": "^1.0.4",
     "mongoose": "^5.11.10"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tzcodes101/googleBooks.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tzcodes101/googleBooks/issues"
+  },
+  "homepage": "https://github.com/Tzcodes101/googleBooks#readme"
 }
