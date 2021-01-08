@@ -3,7 +3,7 @@ const router = require("exress").Router();
 const apiRoutes = require("./api");
 
 //API routes
-router.user("./api", apiRoutes);
+router.user("/api", apiRoutes);
 
 
 //Send to the React App
