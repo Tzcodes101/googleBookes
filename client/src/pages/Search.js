@@ -34,6 +34,7 @@ class Search extends Component {
             {/* Form to Search */}
             {/* Card to display results */}
             <div>Search</div>
+            <Footer />
             </div>
         )
     }

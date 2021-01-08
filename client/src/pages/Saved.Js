@@ -21,7 +21,7 @@ class Saved extends Component {
             </Jumbotron>
             {/* card to display saved books */}
             <div>Saved</div>
-
+            <Footer />
             </>
         )
     }
