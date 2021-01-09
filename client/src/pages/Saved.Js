@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
 import Footer from "../components/Footer";
+import Card from "../components/Card";
 
 class Saved extends Component {
 //set state for books (array)
@@ -19,7 +20,7 @@ class Saved extends Component {
             <Jumbotron>
                 <h1>React Google Books Search</h1>
             </Jumbotron>
-            {/* card to display saved books */}
+            <Card></Card>
             <div>Saved</div>
             <Footer />
             </>

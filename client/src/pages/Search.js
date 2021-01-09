@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
 import Footer from "../components/Footer";
+import Card from "../componentsCard";
 
 class Search extends Component {
     //create state for books, q, and message
@@ -32,7 +33,7 @@ class Search extends Component {
                 <h1>React Google Book Search</h1>
             </Jumbotron>
             {/* Form to Search */}
-            {/* Card to display results */}
+            <Card></Card>
             <div>Search</div>
             <Footer />
             </div>
