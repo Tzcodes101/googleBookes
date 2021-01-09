@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
 import Footer from "../components/Footer";
 import Card from "../components/Card";
+import { List } from "../components/List";
+import DisplayBook from "../components/DisplayBook/DisplayBook";
+import API from "../utils/API";
 
 class Saved extends Component {
     //set state for books (array)
@@ -43,7 +46,7 @@ class Saved extends Component {
                 <Card>
                     {this.state.savedBooks.length ? (
                         <List>
-                            {this.state.savedBooks.map(savedBook => {
+                            {this.state.savedBooks.map(savedBook => (
                                 <DisplayBook
                                     key={savedBook.bookId}
                                     title={savedBook.title}
@@ -52,7 +55,7 @@ class Saved extends Component {
                                     image={savedBook.image}
                                     link={savedBook.link}
                                 />
-                            })}
+                            ))}
                         </List>
                     ) : (
                         <h3>No Saved Books</h3>
