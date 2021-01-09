@@ -13,9 +13,10 @@ module.exports = {
                 result =>
 
                     result.volumeInfo.title &&
-                    result.volumeInfo.authos &&
+                    result.volumeInfo.authors &&
                     result.volumeInfo.description &&
                     result.volumeInfo.infoLink &&
+                    result.volumeInfo.imageLinks &&
                     result.volumeInfo.imageLinks.thumbnail
             ))
             .then(googleBooks => {

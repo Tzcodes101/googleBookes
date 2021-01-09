@@ -12,7 +12,8 @@ function Form({ q, handleInputChange, handleFormSubmit}) {
                     value={q}
                     name="q"
                     onChange={handleInputChange}
-                    required />
+                    required 
+                />
             </div>
             <div>
                 <button

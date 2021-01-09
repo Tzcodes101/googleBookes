@@ -6,6 +6,7 @@ import Form from "../components/Form";
 import API from "../utils/API";
 import { List } from "../components/List";
 import DisplayBook from "../components/DisplayBook/DisplayBook";
+import { Container, Row, Col } from "../components/Grid";
 
 class Search extends Component {
     //create state for books, query, and message
@@ -28,19 +29,19 @@ class Search extends Component {
 
     //get books (from google)
     //set book state to response
-    getGoogleBooks = () => {
+    getBooks = () => {
         API.getBooks(this.state.q)
             .then(res =>
                 this.setState({
                     books: res.data
                 })
             )
-            .catch(err => console.log(err)
-                .then(this.setState({
+            .catch(() =>
+                this.setState({
                     books: [],
                     prompt: "Please try again"
                 })
-            ));
+            );
     };
 
 
@@ -49,7 +50,7 @@ class Search extends Component {
     handleFormSubmit = event => {
         event.preventDefault();
         console.log("clicked");
-        this.getGoogleBooks();
+        this.getBooks();
     };
 
     //saveBook
@@ -65,48 +66,59 @@ class Search extends Component {
             description: book.volumeInfo.description,
             link: book.volumeInfo.infoLink,
             image: book.volumeInfo.imageLinks.thumbnail
-        }).then(() => this.getGoogleBooks())
+        }).then(() => this.getBooks())
     };
-
-
 
 
     render() {
         return (
             //create grid
-            <div>
-                <Jumbotron>
-                    <h1>React Google Book Search</h1>
-                </Jumbotron>
-                <Form
-                    handleInputChange={this.handleInputChange}
-                    handleFormSubmit={this.handleFormSubmit}
-                    q={this.state.q}
-                />
-                <Card>
-                    {this.state.books.length ? (
-                        <List>
-                            {this.state.books.map(book => (
-                                <DisplayBook
-                                    key={book.id}
-                                    title={book.volumeInfo.title}
-                                    authors={book.volumeInfo.authors}
-                                    description={book.volumeInfo.description}
-                                    image={book.volumeInfo.imageLinks.thumbnail}
-                                    link={book.volumeInfo.infoLink}
-                                    Button={() => (
-                                        <button
-                                            onClick={() => this.handleBookSave(book.id)}>Save Book</button>
-                                    )}
-                                />
-                            ))}
-                        </List>
-                    ) : (
-                            <p>{this.state.prompt}</p>
-                        )}
-                </Card>
+            <Container>
+                {/* Keep Jumbo and Form in same grid system */}
+                <Row>
+                    <Col size="md-12">
+                        <Jumbotron>
+                            <h1>React Google Book Search</h1>
+                        </Jumbotron>
+                    </Col>
+                    <Col size="md-12">
+                        <Card title="Search For a Book">
+                            <Form
+                                handleInputChange={this.handleInputChange}
+                                handleFormSubmit={this.handleFormSubmit}
+                                q={this.state.q}
+                            />
+                        </Card>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col size="md-12">
+                        <Card title="Search Results">
+                            {this.state.books.length ? (
+                                <List>
+                                    {this.state.books.map(book => (
+                                        <DisplayBook
+                                            key={book.id}
+                                            title={book.volumeInfo.title}
+                                            authors={book.volumeInfo.authors}
+                                            description={book.volumeInfo.description}
+                                            image={book.volumeInfo.imageLinks.thumbnail}
+                                            link={book.volumeInfo.infoLink}
+                                            Button={() => (
+                                                <button
+                                                    onClick={() => this.handleBookSave(book.id)}>Save Book</button>
+                                            )}
+                                        />
+                                    ))}
+                                </List>
+                            ) : (
+                                    <h3 className="text-center">{this.state.prompt}</h3>
+                                )}
+                        </Card>
+                    </Col>
+                </Row>
                 <Footer />
-            </div>
+            </Container>
         )
     }
 }
