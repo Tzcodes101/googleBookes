@@ -2,8 +2,8 @@ import axios from "axios";
 
 export default {
     //books from the google API
-    getBooks: function(query) {
-        return axios.get("/api/google", { params: { query: "title:" + query} });
+    getBooks: function(q) {
+        return axios.get("/api/google", { params: { q: "title:" + q} });
     },
 
     //get saved books (our own "api")

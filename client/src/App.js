@@ -13,7 +13,7 @@ function App() {
         <Switch>
           <Route exact path={["/", "/search"]} component={Search} />
           <Route exact path="/saved" component={Saved} />
-          <route component={NoMatch} />
+          <Route component={NoMatch} />
         </Switch>
       </div>
     </Router>

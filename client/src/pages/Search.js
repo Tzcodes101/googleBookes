@@ -11,7 +11,7 @@ class Search extends Component {
     //create state for books, query, and message
     state = {
         books: [],
-        query: "",
+        q: "",
         prompt: "Enter a book to search for."
     };
 
@@ -21,8 +21,9 @@ class Search extends Component {
     //get books (from google)
     //set book state to response
     getGoogleBooks = () => {
-        API.getBooks(this.state.query)
+        API.getBooks(this.state.q)
             .then(res =>
+                console.log(res).
                 this.setState({
                     books: res.data
                 })
@@ -75,7 +76,7 @@ class Search extends Component {
                 <Form
                     handleInputChange={this.handleInputChange}
                     handleFormSubmit={this.handleFormSubmit}
-                    query={this.state.query}
+                    q={this.state.q}
                 />
                 <Card>
                     {this.state.books.length ? (
@@ -99,7 +100,6 @@ class Search extends Component {
                             <p>{this.state.prompt}</p>
                         )}
                 </Card>
-                <div>Search</div>
                 <Footer />
             </div>
         )
