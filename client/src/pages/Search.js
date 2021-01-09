@@ -17,33 +17,38 @@ class Search extends Component {
 
 
     //component mounts
+    //handleInputChange (when user searches for a book from the googleAPI)
+    //change state with name to value
+    handleInputChange = event => {
+        const { name, value } = event.target;
+        this.setState({
+            [name]: value
+        });
+    };
 
     //get books (from google)
     //set book state to response
     getGoogleBooks = () => {
         API.getBooks(this.state.q)
             .then(res =>
-                console.log(res).
                 this.setState({
                     books: res.data
                 })
             )
-            .catch(err => console.log(err));
+            .catch(err => console.log(err)
+                .then(this.setState({
+                    books: [],
+                    prompt: "Please try again"
+                })
+            ));
     };
 
-    //handleInputChange (when user searches for a book from the googleAPI)
-    //change state with name to value
-    handleInputChange = e => {
-        const { name, value } = e.target;
-        this.setState({
-            [name]: value
-        });
-    };
 
     //handleFormSubmit
     //call getBooks
-    handleFormSubmit = e => {
-        e.preventDefault();
+    handleFormSubmit = event => {
+        event.preventDefault();
+        console.log("clicked");
         this.getGoogleBooks();
     };
 

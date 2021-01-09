@@ -3,12 +3,12 @@ import React from "react";
 
 export function List({ children }) {
     return (
-        <ul>{children}</ul>
+        <ul className="list-group">{children}</ul>
     )
 };
 
 export function ListItem({ children }) {
     return (
-        <li>{children}</li>
+        <li className="list-group-item">{children}</li>
     )
 };
