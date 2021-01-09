@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const bookController = require("../../controllers/bookController");
+const bookController = require("../../controllers/bookController")
 
-//Communicat with "/api/books"
+//Communicate with "/api/books"
 router.route("/")
     .get(bookController.findAll)
     .post(bookController.create);

@@ -11,13 +11,18 @@ module.exports = {
         axios.get("https://www.googleapis.com/books/v1/volumes", { params })
             .then(results => results.data.items.filter(
                 result =>
+
                     result.volumeInfo.title &&
                     result.volumeInfo.authos &&
                     result.volumeInfo.description &&
-                    result.volumeInfo.infoLink
+                    result.volumeInfo.infoLink &&
+                    result.volumeInfo.imageLinks.thumbnail
             ))
             .then(googleBooks => {
-                    res.json(googleBooks)
+                db.Book.find().then(dbBooks =>
+                    googleBooks.filter(googleBook =>
+                        dbBooks.every(dbBook => dbBook.bookId.toString() !== googleBook.id)))
+                    .then(books => res.json(books))
                     .catch(err => res.status(422).json(err));
             })
         }

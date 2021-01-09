@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const googleController = require("");
+const googleController = require("../../controllers/googleController");
 
 //Enable correspondence with "/api/google"
 router.route("/")

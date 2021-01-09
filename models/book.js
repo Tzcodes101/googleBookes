@@ -9,10 +9,11 @@ const bookSchema = new Schema({
     link: { type: String, required: true },
     description: { type: String, required: true },
     image: { type: String, required: true },
+    bookId: { type: String, required: true, unique: true }
 });
 
 //set schema as a const
-const Book = mongoose.model("Book", boookSchema);
+const Book = mongoose.model("Book", bookSchema);
 
 //export book
 module.exports = Book; 

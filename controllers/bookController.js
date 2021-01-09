@@ -3,7 +3,7 @@ const db = require("../models");
 //define methods
 module.exports = {
     //findAll
-    findAll: function(req, res) {
+    findAll: function (req, res) {
         db.Book.find(req.query)
             .then(dbBook => res.json(dbBook))
             .catch(err => res.status(422).json(err));
@@ -17,11 +17,16 @@ module.exports = {
     },
 
     //create (to do)
+    create: function (req, res) {
+        db.Book.create(req.body)
+            .then(dbBook => res.json(dbBook))
+            .catch(err => res.status(422).json(err));
+    },
 
     //update (to do)
 
     //delete a book based off id
-    delete: function(req, res) {
+    delete: function (req, res) {
         db.Book.findById(req.params.id)
             .then(dbBook => dbBook.remove())
             .then(dbBook => res.json(dbBook))
