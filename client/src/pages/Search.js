@@ -13,7 +13,7 @@ class Search extends Component {
     state = {
         books: [],
         q: "",
-        prompt: "Enter a book to search for."
+        prompt: "Enter a Book to Search For"
     };
 
 
@@ -56,7 +56,7 @@ class Search extends Component {
     //saveBook
     //find book by id
     //use API.saveBook, putting in all needed info from the data object that we need for the Book model
-    handleSaveBook = id => {
+    handleBookSave = id => {
         const book = this.state.books.find(book => book.id === id);
 
         API.saveBook({
