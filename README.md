@@ -3,7 +3,7 @@
 ![badge](https://img.shields.io/badge/license-ISC-brightgreen)
 
 - Link to GitHub repository: https://github.com/Tzcodes101/googleBooks
-- Link to deployed site: https://calm-springs-50745.herokuapp.com/
+- Link to deployed site: https://powerful-beach-19496.herokuapp.com/
 - Link to video walkthrough: https://drive.google.com/file/d/1YNu2PtJPWSrZApQDmA5DvIhBPWgd5C-e/view
 
 ![Image of application](client/public/reactGoogleBookresize.jpg)
