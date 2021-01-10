@@ -106,6 +106,7 @@ class Search extends Component {
                                             link={book.volumeInfo.infoLink}
                                             Button={() => (
                                                 <button
+                                                className="btn btn-dark ml-2"
                                                     onClick={() => this.handleBookSave(book.id)}>Save Book</button>
                                             )}
                                         />
