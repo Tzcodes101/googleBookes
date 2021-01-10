@@ -35,10 +35,50 @@ class NavBar extends Component {
         window.removeEventListener("resize", this.updateWidth);
     }
 
-
+    //render navBar from bootstrap
     render() {
         return (
-            <div>I am going to be a fancy nav...one day!</div>
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                {/* anchor tags become Link and href becomes to */}
+                <Link className="navbar-brand" to="/">
+                    Google Books
+                </Link>
+                {/* change open state for that page when link is clicked */}
+                <button
+                    onClick={this.toggleNav}
+                    className="navbar-toggler"
+                    data-toggle="collapse"
+                    data-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span classsName="navbar-toggler"></span>
+                </button>
+                {/* if open state is true, then class is empty, else navBar is collapsed */}
+                <div className={`${this.state.open ? "" : "collapse "}navbar-collapse`} id="navbarNav">
+                    <ul className="navbar-nav">
+                        <li className="nav-item">
+                            <Link
+                                onClick={this.toggleNav}
+                                className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}
+                                to="/"
+                            >
+                                Search
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link
+                                onClick={this.toggleNav}
+                                className={window.location.pathname === "/saved" ? "nav-link active" : "nav-link"}
+                                to="/saved"
+                            >
+                                Saved
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         )
     }
 }
