@@ -24,6 +24,11 @@ module.exports = {
     },
 
     //update (to do)
+    update: function(req, res) {
+        db.Book.findOneAndUpdate({ id: req.params.id }, req.body)
+          .then(dbBook => res.json(dbBook))
+          .catch(err => res.status(422).json(err));
+      },
 
     //delete a book based off id
     delete: function (req, res) {
