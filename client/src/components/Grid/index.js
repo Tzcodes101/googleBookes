@@ -2,7 +2,7 @@ import React from "react";
 
 //create bootstrap container; able to adjust fluidity 
 export function Container({ fluid, children }) {
-    return <div className={`container${fluid ? "-fluid" : ""}`}>{children}</div>;
+    return <div id="container" className={`container${fluid ? "-fluid" : ""}`}>{children}</div>;
 }
 
 
